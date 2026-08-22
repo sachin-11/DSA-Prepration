@@ -89,6 +89,42 @@ const threeSum = (nums) => {
 console.log(threeSum([-1, 0, 1, 2, -1, -4]))
 
 
+//maxsubArray Sum
+
+const maxSubArray = (nums) => {
+ let curr = 0, max = 0
+ for(let i = 0; i < nums.length; i++) {
+    curr = Math.max(nums[i], curr + nums[i])
+    max = Math.max(max, curr)
+ }
+ return max
+}
+
+console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
+
+
+const lengthOfLongestSubstring = (string) => {
+    const seen = new Set();
+    let left = 0, best = 0;
+    for(let right = 0; right < string.length; right++) {
+        while(seen.has(string[right])) {
+            seen.delete(string[left])
+            left++
+        
+        }
+
+        seen.add(string[right])
+        best = Math.max(best, right - left + 1)
+    }
+    return best
+}
+
+
+console.log(lengthOfLongestSubstring("abcabcbb"))
+console.log(lengthOfLongestSubstring("bbbbb"))
+
+
+
 
 
 
