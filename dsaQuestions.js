@@ -41,5 +41,54 @@ console.log(containsDuplicate([1, 2, 3, 1])) // true
 console.log(containsDuplicate([1, 2, 3, 4])) // false
 
 
+const isValidPalidrom = (string) => {
+    let okay =  c => /[a-z0-9]/i.test(c);
+    let left = 0, right = string.length - 1
+    while(left < right) {
+        while(left < right && !okay(string[left])) left++
+        while(left < right && !okay(string[right])) right--
+        if(string[left].toLowerCase() !== string[right].toLowerCase()) return false
+        left++
+        right--
+    }
+
+    return true
+
+}
+
+
+
+console.log(isValidPalidrom("A man, a plan, a canal: Panama"))
+
+const threeSum = (nums) => {
+  nums.sort((a, b) => a - b)
+  let res = [];
+  for(let i = 0; i < nums.length - 2; i++) {
+    if(i > 0 && nums[i] === nums[i - 1]) continue
+    let left = i + 1, right = nums.length -1
+    while(left < right) {
+        let sum = nums[i] + nums[left] + nums[right]
+        if(sum === 0) {
+            res.push([nums[i], nums[left], nums[right]])
+            while(left < right && nums[left] === nums[left+ 1]) left++
+            while(left < right && nums[right] === nums[right - 1]) right--
+            left++
+            right-- 
+        } else if(sum < 0) {
+            left++
+        } else {
+            right--
+        }
+    }
+  }
+  return res;
+}
+
+
+
+console.log(threeSum([-1, 0, 1, 2, -1, -4]))
+
+
+
 
 
