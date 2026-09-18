@@ -50,7 +50,7 @@ const isValid = (string) => {
        while(left < right && !ok(string[right])) right--
        if(string[left].toLowerCase() !== string[right].toLowerCase()) return false
        left++
-       right--
+       right-- 
    }
 
    return true

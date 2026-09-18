@@ -161,3 +161,19 @@ def longest_substring_count(strigs):
 result = longest_substring_count("sdjshjjdshhd")
 print(result)
 
+
+def contained_duplicate_bethought_prebuild(nums):
+    res = []
+    for i in range(len(nums)):
+        for j in range(i + 1, len(nums)):
+            if nums[i] == nums[j] and nums[j] not in res:
+                res.append(nums[j])
+    return res
+
+result = contained_duplicate_bethought_prebuild([1, 2, 3, 4, 5, 2, 4])
+print(result)
+
+
+
+
+
